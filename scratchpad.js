@@ -1,14 +1,29 @@
-const form = document.getElementById("myForm");
-const textarea = document.getElementById("myTextarea");
+const noteTextArea = document.getElementById('note');
+const panelMessage = document.getElementById('panel-message');
+let saveTimeoutId;
 
-const savedMessage = localStorage.getItem("message");
-if (savedMessage) {
-    textarea.value = savedMessage;
+// Load note from localStorage on page load
+window.addEventListener('load', () => {
+  const savedNote = localStorage.getItem('note');
+  if (savedNote) {
+    noteTextArea.value = savedNote;
+  }
+});
+
+// Autosave note to localStorage after 500ms of not typing
+noteTextArea.addEventListener('input', () => {
+  clearTimeout(saveTimeoutId);
+  saveTimeoutId = setTimeout(() => {
+    const note = noteTextArea.value;
+    localStorage.setItem('note', note);
+    displayPanelMessage('Note saved.');
+  }, 500);
+});
+
+// Function to display a message on the panel
+function displayPanelMessage(message) {
+  panelMessage.innerText = message;
+  setTimeout(() => {
+    panelMessage.innerText = '';
+  }, 2000);
 }
-form.addEventListener("submit", function(event) {
-    event.preventDefault();
-
-const message = textarea.value;
-localStorage.setItem("message", message);
-location.reload();
-});   
