@@ -57,6 +57,47 @@ note.addEventListener('input', function() {
 saveButton.addEventListener("click", () => {
   window.location.href = "/Save.html";
 });
+function syncNotesWithServer(note) {
+  // Check if the user is online
+  if (!navigator.onLine) {
+    return;
+  }
+
+  // Make a request to the server to sync the notes
+  fetch('/api/notes', {
+    method: 'POST',
+    body: JSON.stringify(note),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Update the local notes with the latest version from the server
+    saveNotesToLocalStorage(data);
+  })
+  .catch(error => console.error(error));
+}
+function redirectToHomePage() {
+  window.location.href = '/index.html';
+}
+
+function handleLoginSuccess() {
+  // Save the login token to LocalStorage
+  localStorage.setItem('loginToken', 'token');
+
+  // Redirect the user to the home page
+  redirectToHomePage();
+
+  // Load the saved notes from LocalStorage
+  const notes = loadNotesFromLocalStorage();
+
+  // Start the auto-save functionality
+  const saveInterval = setInterval(() => {
+    saveNotesToLocalStorage(notes);
+    syncNotesWithServer(notes);
+  }, 5000);
+}
 const termsLink = document.createElement('a');
 termsLink.href = '//terms';
 termsLink.innerText = 'Terms of Use';
@@ -70,3 +111,32 @@ privacyLink.innerText = 'Privacy Policy';
 privacyLink.style.position ="fixed";
 privacyLink.style.right = 10;
 document.body.appendChild(privacyLink);
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const email = document.querySelector('#email').value;
+  const password = document.querySelector('#password').value;
+
+  // Make a request to the server to log in or sign up
+  fetch('/api/auth', {
+    method: 'POST',
+    body: JSON.stringify({ email, password }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Save the user token to LocalStorage
+    localStorage.setItem('userToken', data.token);
+
+    // Redirect the user to the home page
+    redirectToHomePage();
+  })
+  .catch(error => console.error(error));
+}
+
+const form = document.querySelector('form');
+form.addEventListener('submit', handleFormSubmit);
+
+
+
