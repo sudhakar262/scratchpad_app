@@ -3,7 +3,7 @@ const panelMessage = document.getElementById('panel-message');
 const charCount = document.getElementById('char-count');
 const lineCount = document.getElementById('line-count');
 const wordCount = document.getElementById('word-count');
-
+const saveButton = document.getElementById("save-btn");
 let saveTimeoutId;
 
 // Load note from localStorage on page load
@@ -54,7 +54,9 @@ note.addEventListener('input', function() {
   const numWords = text.match(/\b\w+\b/g);
   wordCount.innerText = numWords ? numWords.length : 0;
 });
-
+saveButton.addEventListener("click", () => {
+  window.location.href = "/Save.html";
+});
 const termsLink = document.createElement('a');
 termsLink.href = '//terms';
 termsLink.innerText = 'Terms of Use';

@@ -34,12 +34,14 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f2f2f2;
+  background-color: #f1f1f1;
   font-size: 14px;
   line-height: 1.5;
+  
 }
 .panel-message {
   margin: 0 10px;
+  
 }
 header {
   display: flex;
@@ -97,4 +99,8 @@ button {
 
 button:hover {
   background-color: #3e8e41;
+}
+.log-in{
+  background-color: aquamarine;
+  margin: auto;
 }
