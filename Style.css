@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200&display=swap');
+
+
 * {
   box-sizing: border-box;
+  margin: 0;
+  font-family: 'Poppins' , sans-serif;
+  padding: 0;
 }
 body {
   margin: 0;
@@ -14,7 +20,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #f1f1f1;
+  background-color:#f4ecec;
   padding: 10px;
   font-size: 14px;
   text-align: center;
@@ -22,7 +28,7 @@ body {
 
 
 /* CSS code */
-.navbar {
+/*.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,25 +50,26 @@ body {
 
 .navbar-login button:hover {
   background-color: #3e8e41;
-}
+}*/
 textarea {
   width: 100%;
-  height: calc(100% - 50px);
+  height: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  resize: none;
+  resize:both;
   font-size: 16px;
   line-height: inherit;
 
 }
 .panel {
+  margin-top: 20px;
   width: 100%;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f1f1f1;
+  background-color: #ebe4e4;
   font-size: 14px;
   line-height: 1.5;
   
@@ -70,12 +77,53 @@ textarea {
 .panel-message {
   margin: 0 10px;
   
+  
 }
 .container {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
 }
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px;;
+	background-color: #e8e2e2;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+nav ul li {
+	margin-left: 20px;
+}
+
+nav ul li a {
+	color: #333;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+nav ul li a:hover {
+	color: #666;
+}
+.logo {
+	display: flex;
+	align-items: center;
+}
+
+.logo img {
+	height: 50px;
+	margin-right: 10px;
+}
+
+
