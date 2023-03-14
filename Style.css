@@ -25,6 +25,9 @@ body {
   font-size: 14px;
   text-align: center;
 }
+h1{
+font-size: medium;
+}
 
 
 /* CSS code */
@@ -157,4 +160,3 @@ nav ul li a:hover {
 .login-page label {
 	margin-top: 10px;
 }
-
