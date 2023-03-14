@@ -95,7 +95,7 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 5px;;
+	padding: 5px;
 	background-color: #e8e2e2;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -130,12 +130,13 @@ nav ul li a:hover {
 }
 .overlay {
 	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+	top: 10%;
+	left: 10%;
+	right: 10%;
+	bottom: 10%;
 	background-color: rgba(97, 95, 95, 0.5);
 	display: none;
+  text-align: center;
 }
 
 .login-page {
@@ -159,4 +160,13 @@ nav ul li a:hover {
 
 .login-page label {
 	margin-top: 10px;
+}
+#login-submit-btn {
+  margin-top: 10px;
+}
+.login-options {
+  margin-top: 5px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5%;
 }
