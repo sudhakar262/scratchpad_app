@@ -125,5 +125,36 @@ nav ul li a:hover {
 	height: 50px;
 	margin-right: 10px;
 }
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(97, 95, 95, 0.5);
+	display: none;
+}
 
+.login-page {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #9b8c8c;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(160, 32, 32, 0.1);
+}
+.login-page h2 {
+	margin-top: 0;
+}
+
+.login-page form {
+	display: flex;
+	flex-direction: column;
+}
+
+.login-page label {
+	margin-top: 10px;
+}
 

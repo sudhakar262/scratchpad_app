@@ -4,6 +4,9 @@ const charCount = document.getElementById('char-count');
 const lineCount = document.getElementById('line-count');
 const wordCount = document.getElementById('word-count');
 const saveButton = document.getElementById("save-btn");
+const loginBtn = document.getElementById("login-btn");
+const overlay = document.getElementById("login-overlay");
+const loginForm = document.querySelector(".login-page form");
 let saveTimeoutId;
 
 // Load note from localStorage on page load
@@ -21,6 +24,9 @@ note.addEventListener("input", function() {
   if (currentLength >= 1000) {
     alert("You have reached the limit of 1000 characters. Saving to the cloud would be beneficial. Storage is free as of now.");
   }
+});
+loginBtn.addEventListener("click", function() {
+	overlay.style.display = "block";
 });
 let numTries = 0;
 
